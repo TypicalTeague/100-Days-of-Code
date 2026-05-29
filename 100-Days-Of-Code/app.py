@@ -22,12 +22,12 @@ elif project == "Day 2: Tip Calculator":
     st.write("Calculate the split for your bill quickly.")
     
     # Using number inputs instead of terminal inputs
-    total_bill = st.number_input("What was the total bill? ($)", min_value=0.0, step=0.01, format="%.2f")
+    total_bill = st.number_input("What was the total bill? ($)", min_value=0.0, format="%.2f")
     
     # A slider selection works beautifully for choosing percentages
-    tip_percentage = st.slider("How much tip would you like to give? (%)", min_value=0, max_value=100, value=12)
+    tip_percentage = st.number_input("How much tip would you like to give? (%)", min_value=0, max_value=100)
     
-    split_people = st.number_input("How many people to split the bill with?", min_value=1, value=1, step=1)
+    split_people = st.number_input("How many people to split the bill with?", min_value=1, value=1)
     
     if st.button("Calculate Split"):
         if total_bill > 0:
