@@ -3,7 +3,7 @@ import streamlit as st
 st.set_page_config(page_title="Andre's 100 Days of Code", layout="centered")
 
 # Sidebar navigation to switch between days
-project = st.sidebar.selectbox("Select a Project", ["Day 1: Band Name Generator", "Day 2: Tip Calculator", "Day 3: Treasure Island", "Day 4: Rock, Paper, Scissors"])
+project = st.sidebar.selectbox("Select a Project", ["Day 1: Band Name Generator", "Day 2: Tip Calculator", "Day 3: Treasure Island", "Day 4: Rock Paper Scissors"])
 
 if project == "Day 1: Band Name Generator":
     st.title("Welcome to the Band Name Generator 🎸")
