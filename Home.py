@@ -30,17 +30,16 @@ If you look at the sidebar, you'll see whatever apps, games, and scripts I've pu
 col1, col2, col3, col4 = st.columns(4)
 
 with col1:
-    # Make sure these paths match your exact file names!
-    st.page_link("pages/1_Band_Name_Generator.py", label="Day 1: Band Name Generator", icon="🎸")
+  st.page_link("pages/1_Band_Name_Generator.py", label="Day 1: Band Name Generator", icon="🎸")
 
 with col2:
-    st.page_link("pages/treasure_island.py", label="Day 3: Treasure Island", icon="🏴‍☠️")
+  st.page_link("pages/2_Tip_Calculator.py", label="Day 2: Tip Calculator", icon="💸")
 
 with col3:
-    st.page_link("pages/tip_calculator.py", label="Day 2: Tip Calculator", icon="💸")
+  st.page_link("pages/3_Treasure_Island.py", label="Day 3: Treasure Island", icon="🏴‍☠️")
 
 with col4:
-    st.page_link("pages/rock_paper_scissors.py", label="Day 4: Rock Paper Scissors", icon="✂️")
+  st.page_link("pages/4_Rock_Paper_Scissors.py", label="Day 4: Rock Paper Scissors", icon="✂️")
 
 st.divider()
 
