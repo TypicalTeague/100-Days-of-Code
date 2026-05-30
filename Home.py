@@ -27,6 +27,16 @@ Honestly, I'm just doing the **100 Days of Code** challenge to stay sharp and ha
 If you look at the sidebar, you'll see whatever apps, games, and scripts I've put together lately. Nothing too crazy, just figuring things out and building stuff as I go.
 """)
 
+col1, col2 = st.columns(2)
+
+with col1:
+    # Make sure these paths match your exact file names!
+    st.page_link("pages/band_name_generator.py", label="Day 1: Band Name Generator", icon="🎸")
+    st.page_link("pages/treasure_island.py", label="Day 3: Treasure Island", icon="🏴‍☠️")
+
+with col2:
+    st.page_link("pages/tip_calculator.py", label="Day 2: Tip Calculator", icon="💸")
+    st.page_link("pages/rock_paper_scissors.py", label="Day 4: Rock Paper Scissors", icon="✂️")
 st.divider()
 
 # Call to Action / Socials
