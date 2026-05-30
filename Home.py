@@ -24,7 +24,7 @@ st.write("""
 ### What's all this?
 Honestly, I'm just doing the **100 Days of Code** challenge to stay sharp and have somewhere to dump my projects. 
 
-If you look at the sidebar, you'll see whatever apps, games, and scripts I've put together lately. Nothing too crazy, just figuring things out and building stuff as I go.
+You can use the sidebar or just click around the grid down below to jump into whatever apps, games, and scripts I've put together lately. Nothing too crazy, just figuring things out and building stuff as I go.
 """)
 
 col1, col2, col3, col4 = st.columns(4)
