@@ -30,4 +30,4 @@ If you look at the sidebar, you'll see whatever apps, games, and scripts I've pu
 st.divider()
 
 # Call to Action / Socials
-st.info("🎮 **Catch the stream:** I'm live on Twitch everyday just coding and hanging out until I land a job. Drop in if you want.")
+st.info("🔗 **Let's connect:** If you want to see the raw code or just reach out, you can find me on [LinkedIn](https://www.linkedin.com/in/andreteaguejr/) and [GitHub](https://github.com/TypicalTeague).")
