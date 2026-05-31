@@ -32,6 +32,7 @@ col1, col2, col3, col4 = st.columns(4)
 with col1:
   with st.container(border=True):
       st.page_link("pages/1_Band_Name_Generator.py", label="Day 1: Band Name Generator", icon="🎸")
+  with st.container(border=True):
       st.page_link("pages/5_Password_Generator.py", label = "Day 5: Password Generator", icon="🔐")
 
 with col2:
