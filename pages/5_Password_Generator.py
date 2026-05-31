@@ -8,7 +8,7 @@ letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n',
 numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
 symbols = ['!', '#', '$', '%', '&', '(', ')', '*', '+']
 
-# Streamlit sliders replace the terminal inputs
+# Streamlit number inputs for ease of use on phone
 nr_letters = st.number_input("How many letters would you like?", min_value=0, max_value=20, value=8)
 nr_symbols = st.number_input("How many symbols would you like?", min_value=0, max_value=10, value=2)
 nr_numbers = st.number_input("How many numbers would you like?", min_value=0, max_value=10, value=2)
