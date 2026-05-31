@@ -27,25 +27,22 @@ Honestly, I'm just doing the **100 Days of Code** challenge to stay sharp and ha
 You can use the sidebar or just click around the grid down below to jump into whatever apps, games, and scripts I've put together lately. Nothing too crazy, just figuring things out and building stuff as I go.
 """)
 
-col1, col2, col3, col4 = st.columns(4)
+with st.container(border=True):
+  col1, col2, col3, col4 = st.columns(4)
 
-with col1:
-  with st.container(border=True):
-      st.page_link("pages/1_Band_Name_Generator.py", label="Day 1: Band Name Generator", icon="🎸")
-  with st.container(border=True):
-      st.page_link("pages/5_Password_Generator.py", label = "Day 5: Password Generator", icon="🔐")
+  with col1:
+    st.page_link("pages/1_Band_Name_Generator.py", label="Day 1: Band Name Generator", icon="🎸")
 
-with col2:
-  with st.container(border=True):
-      st.page_link("pages/2_Tip_Calculator.py", label="Day 2: Tip Calculator", icon="💸")
+    st.page_link("pages/5_Password_Generator.py", label = "Day 5: Password Generator", icon="🔐")
 
-with col3:
-  with st.container(border=True):
-      st.page_link("pages/3_Treasure_Island.py", label="Day 3: Treasure Island", icon="🏴‍☠️")
+  with col2:
+    st.page_link("pages/2_Tip_Calculator.py", label="Day 2: Tip Calculator", icon="💸")
 
-with col4:
-  with st.container(border=True):
-      st.page_link("pages/4_Rock_Paper_Scissors.py", label="Day 4: Rock Paper Scissors", icon="✂️")
+  with col3:
+    st.page_link("pages/3_Treasure_Island.py", label="Day 3: Treasure Island", icon="🏴‍☠️")
+
+  with col4:
+    st.page_link("pages/4_Rock_Paper_Scissors.py", label="Day 4: Rock Paper Scissors", icon="✂️")
 
 st.divider()
 
