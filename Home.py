@@ -41,6 +41,8 @@ with st.container(border=True):
   with col3:
     st.page_link("pages/3_Treasure_Island.py", label="Day 3: Treasure Island", icon="🏴‍☠️")
 
+    st.page_link("pages/7_Hangman.py", label="Day 7: Hangman", icon="💀")
+
   with col4:
     st.page_link("pages/4_Rock_Paper_Scissors.py", label="Day 4: Rock Paper Scissors", icon="✂️")
 
