@@ -43,7 +43,9 @@ if not st.session_state.game_over:
     st.header(f"Word to guess: {display}")
 
     # Player Input
-    guess = st.text_input("Guess a letter:", max_chars=1).lower()
+    with st.form(key="guess_form", clear_on_submit=True):
+        guess = st.text_input("Guess a letter:", max_chars=1).lower()
+        submit = st.form_submit_button("Submit Guess")
 
     if guess:
         if guess in st.session_state.previous_guesses:
