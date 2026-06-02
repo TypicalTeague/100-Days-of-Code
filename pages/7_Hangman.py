@@ -11,6 +11,8 @@ if "chosen_word" not in st.session_state:
     st.session_state.lives = 6
     st.session_state.previous_guesses = []
     st.session_state.game_over = False
+    st.session_state.status_message = ""
+    st.session_state.guess_input = "" # This tracks the text box now!
 
 # Display the Hangman Logo
 st.text(hangman_art.logo)
@@ -21,16 +23,57 @@ if st.button("Restart Game"):
     st.session_state.lives = 6
     st.session_state.previous_guesses = []
     st.session_state.game_over = False
+    st.session_state.status_message = ""
+    st.session_state.guess_input = ""
     st.rerun()
 
 st.divider()
 
-# Only run this logic if the game is still active
+# --- THE CALLBACK FUNCTION ---
+# This runs instantly the second you press Enter
+def process_guess():
+    # Grab the letter the user just typed
+    guess = st.session_state.guess_input.lower()
+    
+    # Instantly clear the text box for the next turn
+    st.session_state.guess_input = "" 
+
+    # If the box was empty or the game is over, do nothing
+    if not guess or st.session_state.game_over:
+        return
+
+    # Process the logic
+    if guess in st.session_state.previous_guesses:
+        st.session_state.status_message = f"You already guessed '{guess}'. Try again."
+    else:
+        st.session_state.previous_guesses.append(guess)
+        
+        # Incorrect guess
+        if guess not in st.session_state.chosen_word:
+            st.session_state.lives -= 1
+            st.session_state.status_message = f"'{guess}' is not in the word. You lost a life."
+        else:
+            st.session_state.status_message = f"Nice! '{guess}' is in the word."
+        
+        # Check for loss
+        if st.session_state.lives == 0:
+            st.session_state.game_over = True
+            
+        # Check for win
+        win = True
+        for letter in st.session_state.chosen_word:
+            if letter not in st.session_state.previous_guesses:
+                win = False
+        if win:
+            st.session_state.game_over = True
+
+# --- THE UI DISPLAY ---
+# Only run this if the game is still active
 if not st.session_state.game_over:
     
-    # Display lives and art
+    # Display lives and the actual image!
     st.write(f"**Lives Left:** {st.session_state.lives}")
-    st.text(hangman_art.stages[st.session_state.lives])
+    st.image(f"images/hangman_{st.session_state.lives}.png")
 
     # Build the display word (e.g., _ a _ _ l e)
     display = ""
@@ -42,47 +85,16 @@ if not st.session_state.game_over:
             
     st.header(f"Word to guess: {display}")
 
-    # Player Input
-    with st.form(key="guess_form", clear_on_submit=True):
-        guess = st.text_input("Guess a letter:", max_chars=1).lower()
-        submit = st.form_submit_button("Submit Guess")
+    # Display the instant feedback message
+    if st.session_state.status_message:
+        st.info(st.session_state.status_message)
 
-    if guess:
-        if guess in st.session_state.previous_guesses:
-            st.info(f"You already guessed '{guess}'. Try again.")
-        else:
-            st.session_state.previous_guesses.append(guess)
-            
-            # Incorrect guess
-            if guess not in st.session_state.chosen_word:
-                st.session_state.lives -= 1
-                st.warning(f"You guessed '{guess}', that's not in the word. You lose a life.")
-            
-            # Check for loss
-            if st.session_state.lives == 0:
-                st.session_state.game_over = True
-                st.error("*********************** YOU LOSE ***********************")
-                st.write(f"The word was: **{st.session_state.chosen_word}**")
-                st.rerun()
-                
-            # Check for win
-            win = True
-            for letter in st.session_state.chosen_word:
-                if letter not in st.session_state.previous_guesses:
-                    win = False
-                    
-            if win:
-                st.session_state.game_over = True
-                st.success("**************************** YOU WIN ****************************")
-                st.rerun()
-                
-        # Force a refresh to update the display immediately after a guess
-        if not st.session_state.game_over:
-            st.rerun()
+    # THE FIX: Tie the text box to the callback function using 'on_change'
+    st.text_input("Guess a letter:", max_chars=1, key="guess_input", on_change=process_guess)
 
 else:
     # What to show when the game is over
-    st.text(hangman_art.stages[st.session_state.lives])
+    st.image(f"images/hangman_{st.session_state.lives}.png")
     if st.session_state.lives == 0:
         st.error(f"Game Over! The word was **{st.session_state.chosen_word}**.")
     else:
