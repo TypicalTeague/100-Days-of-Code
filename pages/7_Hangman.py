@@ -17,14 +17,6 @@ if "chosen_word" not in st.session_state:
 st.image("images/hangman_logo.png")
 
 # Game Reset Button
-if st.button("Restart Game"):
-    st.session_state.chosen_word = random.choice(hangman_words.word_list)
-    st.session_state.lives = 6
-    st.session_state.previous_guesses = []
-    st.session_state.game_over = False
-    st.session_state.status_message = ""
-    st.session_state.guess_input = ""
-    st.rerun()
 
 st.divider()
 
@@ -106,3 +98,12 @@ keyboard_html += "</div>"
 
 # Render the HTML block at the bottom of the page
 st.markdown(keyboard_html, unsafe_allow_html=True)
+
+if st.button("Restart Game"):
+    st.session_state.chosen_word = random.choice(hangman_words.word_list)
+    st.session_state.lives = 6
+    st.session_state.previous_guesses = []
+    st.session_state.game_over = False
+    st.session_state.status_message = ""
+    st.session_state.guess_input = ""
+    st.rerun()
