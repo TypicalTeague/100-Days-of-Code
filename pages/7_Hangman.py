@@ -1,7 +1,6 @@
 import streamlit as st
 import random
 import hangman_words
-import hangman_art
 
 st.title("Day 7: Hangman 💀")
 
@@ -15,7 +14,7 @@ if "chosen_word" not in st.session_state:
     st.session_state.guess_input = "" 
 
 # Display the Hangman Logo
-st.text(hangman_art.logo)
+st.image("images/hangman_logo.png")
 
 # Game Reset Button
 if st.button("Restart Game"):
@@ -64,7 +63,7 @@ if not st.session_state.game_over:
     st.write(f"**Lives Left:** {st.session_state.lives}")
     
     # Back to ASCII art
-    st.text(hangman_art.stages[st.session_state.lives])
+    st.images(f"images/hangman_{st.session_state.lives}.png")
 
     display = ""
     for letter in st.session_state.chosen_word:
@@ -82,7 +81,7 @@ if not st.session_state.game_over:
 
 else:
     # Back to ASCII art for the game over screen
-    st.text(hangman_art.stages[st.session_state.lives])
+    st.images(f"images/hangman_{st.session_state.lives}.png")
     if st.session_state.lives == 0:
         st.error(f"Game Over! The word was **{st.session_state.chosen_word}**.")
     else:
