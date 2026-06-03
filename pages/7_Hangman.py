@@ -63,7 +63,7 @@ if not st.session_state.game_over:
     st.write(f"**Lives Left:** {st.session_state.lives}")
     
     # Back to ASCII art
-    st.images(f"images/hangman_{st.session_state.lives}.png")
+    st.image(f"images/hangman_{st.session_state.lives}.png")
 
     display = ""
     for letter in st.session_state.chosen_word:
@@ -81,7 +81,7 @@ if not st.session_state.game_over:
 
 else:
     # Back to ASCII art for the game over screen
-    st.images(f"images/hangman_{st.session_state.lives}.png")
+    st.image(f"images/hangman_{st.session_state.lives}.png")
     if st.session_state.lives == 0:
         st.error(f"Game Over! The word was **{st.session_state.chosen_word}**.")
     else:
