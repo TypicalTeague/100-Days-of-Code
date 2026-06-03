@@ -86,3 +86,23 @@ else:
         st.error(f"Game Over! The word was **{st.session_state.chosen_word}**.")
     else:
         st.success("You survived!")
+
+# --- VISUAL KEYBOARD ---
+keyboard_html = "<div style='display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-top: 20px;'>"
+for letter in "abcdefghijklmnopqrstuvwxyz":
+    if letter in st.session_state.previous_guesses:
+        if letter in st.session_state.chosen_word:
+            # Right guess gets green
+            style = "background-color: #28a745; color: white; border: 1px solid #28a745;"
+        else:
+            # Wrong guess gets dark grey
+            style = "background-color: #6c757d; color: white; border: 1px solid #6c757d;"
+    else:
+        # Unused letters stay hollow
+        style = "background-color: transparent; border: 1px solid #888; color: inherit;"
+        
+    keyboard_html += f"<div style='padding: 10px 15px; border-radius: 5px; font-weight: bold; text-transform: uppercase; {style}'>{letter}</div>"
+keyboard_html += "</div>"
+
+# Render the HTML block at the bottom of the page
+st.markdown(keyboard_html, unsafe_allow_html=True)
