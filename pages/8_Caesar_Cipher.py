@@ -32,6 +32,6 @@ if st.button("Execute"):
     if text:
         result = caesar(original_text=text, shift_amount=shift, encode_or_decode=direction)
         st.success(f"**Here is the {direction}d result:**")
-        st.code(result)
+        st.code(result, language=None)
     else:
         st.warning("You need to type a message first!")
