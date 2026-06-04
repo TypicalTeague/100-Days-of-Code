@@ -46,6 +46,8 @@ with st.container(border=True):
   with col4:
     st.page_link("pages/4_Rock_Paper_Scissors.py", label="Day 4: Rock Paper Scissors", icon="✂️")
 
+    st.page_link("pages/8_Caesar_Cipher.py", label="Day 8: Caesar Cipher", icon="🕵️‍♂️")
+
 st.divider()
 
 # Call to Action / Socials
