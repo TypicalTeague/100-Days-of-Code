@@ -38,7 +38,7 @@ with st.container(border=True):
   with col2:
     st.page_link("pages/2_Tip_Calculator.py", label="Day 2: Tip Calculator", icon="💸")
 
-    st.page_link("pages/9_Calculator.py", label="Day 9: Calculator", icon='🧮')
+    st.page_link("pages/10_Calculator.py", label="Day 10: Calculator", icon='🧮')
 
   with col3:
     st.page_link("pages/3_Treasure_Island.py", label="Day 3: Treasure Island", icon="🏴‍☠️")
